@@ -40,3 +40,4 @@ htmlcov/
 .tox/
 .n
 test_curl.py
+.env

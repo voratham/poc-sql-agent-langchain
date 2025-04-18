@@ -1,18 +1,18 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import create_sql_query_chain
-from langchain.agents import create_sql_agent
 from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
+from langchain_community.agent_toolkits.sql.base import create_sql_agent
 
 
 class SQLAgent:
-    def __init__(self, db_connector):
+    def __init__(self, db_connector, gemini_api_key):
         self.db = db_connector.db
 
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-1.5-flash", 
-            google_api_key="xxxxx",
+            model="gemini-1.5-flash",
+            google_api_key=gemini_api_key,
             temperature=0,
-            max_output_tokens=300,
+            max_output_tokens=500,
 
         )
 
